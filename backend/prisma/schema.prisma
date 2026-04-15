@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Candidato {
+  id                 Int      @id @default(autoincrement())
+  nome_completo      String
+  estado_civil       String
+  idade              Int
+  whatsapp           String   @unique
+  tempo_igreja       String
+  batizado           Boolean
+  veio_outra_igreja  Boolean
+  fez_integracao     Boolean
+  area_atuacao       String
+  instrumento_funcao String
+  tempo_experiencia  String
+  ja_serviu_antes    Boolean
+  data_audicao       String
+  data_inscricao     DateTime @default(now())
+}
+
